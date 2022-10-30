@@ -1,5 +1,3 @@
-// sse server
-
 const http = require('http');
 
 const requestListener = (req, res) => {
@@ -25,6 +23,7 @@ const requestListener = (req, res) => {
 };
 
 const server = http.createServer(requestListener);
+
 server.listen(4000, () => {
   console.log("server running at http://localhost:4000");
 });

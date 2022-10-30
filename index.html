@@ -11,19 +11,13 @@
       background: #ccc;
     }
 
-    main {
-      position: absolute;
-      width: 100vw;
-      height: 100vh;
-    }
-
-    section {
-      width: 250px;
-      padding: 8px;
+    .ticker-container {
+      width: 40%;
+      padding: 18px;
       text-align: center;
       background: #fefefe;
       border-radius: 9px;
-      position: relative;
+      position: fixed;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -63,13 +57,11 @@
 </head>
 
 <body>
-  <main>
-    <section>
-      <h1>Ticker</h1>
-      <em id="data">Connecting....</em>
-      <button onclick="closeStream()">Close Stream</button>
-    </section>
-  </main>
+  <div class="ticker-container">
+    <h1>SSE Ticker</h1>
+    <em id="data">Connecting....</em>
+    <button onclick="closeStream()">Close Stream</button>
+  </div>
   <script>
     const sseSource = new EventSource("http://localhost:4000/sse");
     const closeStream = () => sseSource.close();
