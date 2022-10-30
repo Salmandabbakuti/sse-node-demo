@@ -12,7 +12,7 @@
     }
 
     .ticker-container {
-      width: 40%;
+      width: 20%;
       padding: 18px;
       text-align: center;
       background: #fefefe;
@@ -38,7 +38,6 @@
       color: greenyellow;
       font-family: monospace;
       font-size: 16px;
-      ;
     }
 
     button {
@@ -73,7 +72,7 @@
       document.getElementById("data").innerHTML = event.data;
     };
     sseSource.onerror = (err) => {
-      document.getElementById("data").innerHTML = "Failed to connect";
+      document.getElementById("data").innerHTML = "Failed to connect.!";
     };
   </script>
 </body>
