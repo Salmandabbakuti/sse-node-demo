@@ -35,11 +35,6 @@ const schema = createSchema({
 
 const yoga = createYoga({
   schema,
-  maskedErrors: false,
-  graphiql: true,
-  graphqlEndpoint: '/graphql',
-  landingPage: true,
-  plugins: []
 });
 
 const server = createServer(yoga);
