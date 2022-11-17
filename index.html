@@ -12,7 +12,8 @@
     }
 
     .ticker-container {
-      width: 20%;
+      max-width: 350px;
+      width: fit-content;
       padding: 18px;
       text-align: center;
       background: #fefefe;
@@ -62,14 +63,25 @@
     <button onclick="closeStream()">Close Stream</button>
   </div>
   <script>
-    const sseSource = new EventSource("http://localhost:4000/sse");
+    const url = new URL('http://localhost:4000/graphql');
+    url.searchParams.append(
+      'query',
+      `subscription {
+        ticker 
+      }`
+    );
+    const sseSource = new EventSource(url.toString(), {
+      withCredentials: true
+    });
     const closeStream = () => sseSource.close();
     sseSource.onopen = () => {
       document.getElementById("data").innerHTML = "Connected";
     };
     sseSource.onmessage = (event) => {
       console.log(event);
-      document.getElementById("data").innerHTML = event.data;
+      const data = JSON.parse(event.data);
+      console.log(data);
+      document.getElementById("data").innerHTML = data.data.ticker;
     };
     sseSource.onerror = (err) => {
       document.getElementById("data").innerHTML = "Failed to connect.!";

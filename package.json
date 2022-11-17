@@ -1,0 +1,25 @@
+{
+  "name": "sse-node-demo",
+  "version": "1.0.0",
+  "description": "Server Sent events example demo",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Salmandabbakuti/sse-node-demo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Salmandabbakuti/sse-node-demo/issues"
+  },
+  "homepage": "https://github.com/Salmandabbakuti/sse-node-demo#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "graphql": "^16.6.0",
+    "graphql-yoga": "^3.0.0"
+  }
+}
